@@ -25,8 +25,6 @@ const specs = [
       </svg>
     ),
     requirement: "Editor & IDE",
-    badge: "Antigravity Ready",
-    badgeType: "primary",
     details: "Antigravity IDE with workspace rules and a command tool enabled.",
   },
   {
@@ -38,8 +36,6 @@ const specs = [
       </svg>
     ),
     requirement: "Python Runtime",
-    badge: "64-bit Python 3.12",
-    badgeType: "emerald",
     details: "A 64-bit Python 3.12 installation. Python 3.13/3.14 alone is not sufficient; use official Python Install Manager.",
   },
   {
@@ -49,8 +45,6 @@ const specs = [
       </svg>
     ),
     requirement: "Target Repository",
-    badge: "Any Local Folder",
-    badgeType: "neutral",
     details: "A local directory containing Python source files. The project does not need to sit inside any TokenWise checkout.",
   },
   {
@@ -62,8 +56,6 @@ const specs = [
       </svg>
     ),
     requirement: "Network Access",
-    badge: "First-run Only",
-    badgeType: "neutral",
     details: "Needed only once to download packaging tools and ~1.35 GB pinned weights. All retrieval runs 100% locally afterward.",
   },
   {
@@ -75,8 +67,6 @@ const specs = [
       </svg>
     ),
     requirement: "Disk Storage",
-    badge: "10 GB Free",
-    badgeType: "amber",
     details: "Allow about 10 GB free space for the private Python virtualenv, cached wheels, and SHA-256 verified model weights.",
   },
   {
@@ -95,8 +85,6 @@ const specs = [
       </svg>
     ),
     requirement: "Hardware & Compute",
-    badge: "100% CPU Sufficient",
-    badgeType: "emerald",
     details: "8 GB RAM practical recommendation. Runs purely on CPU; no GPU, no Ollama, and no external MCP server required.",
   },
   {
@@ -107,8 +95,6 @@ const specs = [
       </svg>
     ),
     requirement: "API Billing & Keys",
-    badge: "Zero Extra Keys",
-    badgeType: "emerald",
     details: "TokenWise does not require an API key or external service account. Your Antigravity model billing remains completely separate.",
   },
 ];
@@ -116,7 +102,6 @@ const specs = [
 const quickStartSteps = [
   {
     num: "1",
-    tag: "Installation",
     title: "Install TokenWise VSIX in Antigravity",
     desc: "Download tokenwise-vscode-0.6.3.vsix. In Antigravity: open Extensions view, click the '...' menu, choose 'Install from VSIX...', select the downloaded file, and reload the editor window when prompted. (F5 is only for extension developers).",
     codeLabel: "Antigravity Extensions View",
@@ -124,7 +109,6 @@ const quickStartSteps = [
   },
   {
     num: "2",
-    tag: "Workspace",
     title: "Open Your Local Python Repository",
     desc: "Use File > Open Folder and select your project, for example C:\\Projects\\my-python-app. The folder can be located anywhere on disk; it does not need to sit inside a TokenWise checkout.",
     codeLabel: "Antigravity Menu",
@@ -132,7 +116,6 @@ const quickStartSteps = [
   },
   {
     num: "3",
-    tag: "Configuration",
     title: "Enable Automatic Context in Antigravity",
     desc: "Open the Command Palette (Ctrl+Shift+P) and execute 'TokenWise: Enable Automatic Context'. On first setup, select 'Install Managed Backend' to create a private environment and download weights automatically.",
     codeLabel: "Antigravity Command Palette (Ctrl+Shift+P)",
@@ -140,7 +123,6 @@ const quickStartSteps = [
   },
   {
     num: "4",
-    tag: "Execution",
     title: "Enter Your Normal Coding Prompt",
     desc: "Start a new Antigravity chat and enter your question. The backend starts automatically and injects bounded [TokenWise automatic context] with exact code snippets and tests without asking you to pick files.",
     codeLabel: "Antigravity Agent Chat",
@@ -308,6 +290,17 @@ export default function Home() {
 
           <h1 className="heroTitle">TokenWise</h1>
           <p className="heroSubtitle">Sustainable Context Optimization for Coding Agents</p>
+          <p className="heroAuthor">
+            Developed by{" "}
+            <a
+              href="https://github.com/adnan-bin-wahid"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="heroAuthorLink"
+            >
+              adnan-bin-wahid
+            </a>
+          </p>
 
           <div className="heroActions">
             <a className="primaryBtn" href={vsixDownloadUrl} download>
@@ -347,7 +340,6 @@ export default function Home() {
                 </div>
                 <h2 className="installHighlightTitle">How to add in Antigravity:</h2>
               </div>
-              <span className="installBadgeTag">Fast Setup</span>
             </div>
 
             <div className="installStepsGrid">
@@ -405,25 +397,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Metrics Bar with Elevated Micro-card Styling */}
+      {/* Metrics Bar */}
       <section className="metricsBar" aria-label="Key specifications">
         <div className="metricItem">
-          <div className="metricBadge">100% Local</div>
           <span className="metricValue">Local CPU</span>
           <span className="metricLabel">No GPU, Ollama, or MCP server required</span>
         </div>
         <div className="metricItem">
-          <div className="metricBadge">Pinned &amp; Verified</div>
           <span className="metricValue">~1.35 GB</span>
           <span className="metricLabel">Model weights verified with SHA-256 hash</span>
         </div>
         <div className="metricItem">
-          <div className="metricBadge">Smart Discovery</div>
           <span className="metricValue">Zero Picking</span>
           <span className="metricLabel">Automatic retrieval of relevant code &amp; tests</span>
         </div>
         <div className="metricItem">
-          <div className="metricBadge">Verified Runtime</div>
           <span className="metricValue">Python 3.12</span>
           <span className="metricLabel">Windows-tested beta with managed backend</span>
         </div>
@@ -462,7 +450,6 @@ export default function Home() {
               <div className="specCard" key={item.requirement}>
                 <div className="specCardTop">
                   <div className="specIconWrapper">{item.icon}</div>
-                  <span className={`specPill specPill_${item.badgeType}`}>{item.badge}</span>
                 </div>
                 <h3 className="specCardName">{item.requirement}</h3>
                 <p className="specCardDetails">{item.details}</p>
@@ -488,7 +475,6 @@ export default function Home() {
               <div className="stepCard" key={step.num}>
                 <div className="stepCardTop">
                   <div className="stepNumber">0{step.num}</div>
-                  <span className="stepTag">{step.tag}</span>
                 </div>
                 <h3 className="stepTitle">{step.title}</h3>
                 <p className="stepText">{step.desc}</p>
@@ -518,7 +504,6 @@ export default function Home() {
               <div className="pipelineCard" key={item.step}>
                 <div className="pipelineHeader">
                   <span className="pipelineStepNum">Stage {item.step}/7</span>
-                  <span className="pipelineStatus">Auto-Validated</span>
                 </div>
                 <h3 className="pipelineTitle">{item.name}</h3>
                 <p className="pipelineWhat">{item.what}</p>
@@ -585,7 +570,6 @@ export default function Home() {
         <div className="container">
           <div className="demonstrationCard">
             <div className="demonstrationContent">
-              <span className="demonstrationEyebrow">Evaluation &amp; Presentation</span>
               <h2 className="demonstrationTitle">Demonstration Guide &amp; 4 Test Repositories</h2>
               <p className="demonstrationDesc">
                 TokenWise 0.6.3 provides an official teacher demonstration bundle with 4 independent Python demo repositories, input-trace inspection commands, and packet-comparison verification.
@@ -615,16 +599,6 @@ export default function Home() {
       <section className="section sectionLight">
         <div className="container">
           <div className="ctaCard">
-            <div className="ctaBadge">
-              <Image
-                src="/antigravity_app_icon.png"
-                alt="Antigravity IDE Logo"
-                width={20}
-                height={20}
-                className="ctaAntigravityLogo"
-              />
-              <span>Antigravity IDE Extension • Release v0.6.3</span>
-            </div>
             <h2>Download TokenWise for Antigravity</h2>
             <p>
               Experience bounded context retrieval for your Python repositories. Download the official VSIX file, install in Antigravity, and start coding sustainably.

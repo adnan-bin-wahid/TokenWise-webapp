@@ -181,8 +181,27 @@ main {
   font-size: clamp(1.2rem, 2.6vw, 1.55rem);
   font-weight: 600;
   color: var(--emerald);
-  margin: 0 0 2.2rem 0;
+  margin: 0 0 0.65rem 0;
   letter-spacing: -0.015em;
+}
+
+.heroAuthor {
+  font-size: 0.96rem;
+  color: var(--text-subtle);
+  margin: 0 0 2.4rem 0;
+  font-weight: 500;
+}
+
+.heroAuthorLink {
+  color: var(--text);
+  font-weight: 700;
+  border-bottom: 1px dotted var(--line-strong);
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.heroAuthorLink:hover {
+  color: var(--emerald);
+  border-bottom-color: var(--emerald);
 }
 
 .heroActions {
@@ -297,19 +316,6 @@ main {
   margin: 0;
 }
 
-.installBadgeTag {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.25rem 0.65rem;
-  border-radius: 9999px;
-  background: var(--emerald-light);
-  border: 1px solid var(--emerald-border);
-  color: var(--emerald-dark);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
 /* 4-Step Connected Layout */
 .installStepsGrid {
   display: grid;
@@ -414,7 +420,7 @@ main {
   opacity: 0.75;
 }
 
-/* Elevated Metrics / Highlights Bar */
+/* Elevated Metrics Bar without Badges */
 .metricsBar {
   background: #ffffff;
   border-bottom: 1px solid var(--line);
@@ -424,11 +430,11 @@ main {
 }
 
 .metricItem {
-  padding: 2.4rem 2rem;
+  padding: 2.6rem 2rem;
   text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.4rem;
   transition: background 160ms ease;
 }
 
@@ -436,22 +442,8 @@ main {
   background: var(--background-subtle);
 }
 
-.metricBadge {
-  align-self: flex-start;
-  font-size: 0.72rem;
-  font-family: var(--font-mono), monospace;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--emerald-dark);
-  background: var(--emerald-light);
-  border: 1px solid var(--emerald-border);
-  padding: 0.15rem 0.45rem;
-  border-radius: 4px;
-  letter-spacing: 0.04em;
-}
-
 .metricValue {
-  font-size: 2.1rem;
+  font-size: 2.2rem;
   font-weight: 900;
   color: var(--text);
   letter-spacing: -0.03em;
@@ -595,7 +587,6 @@ main {
 .specCardTop {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 0.35rem;
 }
 
@@ -608,38 +599,6 @@ main {
   background: var(--background-subtle);
   border: 1px solid var(--line);
   color: #0f172a;
-}
-
-.specPill {
-  font-size: 0.74rem;
-  font-weight: 700;
-  font-family: var(--font-mono), monospace;
-  padding: 0.2rem 0.55rem;
-  border-radius: 9999px;
-  letter-spacing: 0.02em;
-}
-
-.specPill_primary {
-  background: #0f172a;
-  color: #ffffff;
-}
-
-.specPill_emerald {
-  background: var(--emerald-light);
-  border: 1px solid var(--emerald-border);
-  color: var(--emerald-dark);
-}
-
-.specPill_amber {
-  background: var(--amber-light);
-  border: 1px solid var(--amber-border);
-  color: var(--amber);
-}
-
-.specPill_neutral {
-  background: var(--panel-muted);
-  border: 1px solid var(--line);
-  color: var(--text-muted);
 }
 
 .specCardName {
@@ -684,7 +643,6 @@ main {
 .stepCardTop {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .stepNumber {
@@ -699,17 +657,6 @@ main {
   font-size: 0.92rem;
   font-weight: 800;
   color: #ffffff;
-}
-
-.stepTag {
-  font-size: 0.76rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--emerald-dark);
-  background: var(--emerald-light);
-  border: 1px solid var(--emerald-border);
-  padding: 0.15rem 0.5rem;
-  border-radius: 4px;
 }
 
 .stepTitle {
@@ -781,7 +728,6 @@ main {
 .pipelineHeader {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 0.2rem;
 }
 
@@ -793,16 +739,6 @@ main {
   border-radius: 4px;
   background: #0f172a;
   color: #ffffff;
-}
-
-.pipelineStatus {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--emerald-dark);
-  background: var(--emerald-light);
-  border: 1px solid var(--emerald-border);
-  padding: 0.15rem 0.45rem;
-  border-radius: 4px;
 }
 
 .pipelineTitle {
@@ -952,17 +888,6 @@ main {
   margin: 0 auto;
 }
 
-.demonstrationEyebrow {
-  display: inline-block;
-  font-family: var(--font-mono), monospace;
-  font-size: 0.8rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: var(--emerald);
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
-}
-
 .demonstrationTitle {
   font-size: clamp(1.8rem, 3.5vw, 2.5rem);
   font-weight: 900;
@@ -996,24 +921,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.ctaBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.85rem;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #e2e8f0;
-  margin-bottom: 1.4rem;
-}
-
-.ctaAntigravityLogo {
-  border-radius: 3px;
 }
 
 .ctaCard h2 {
