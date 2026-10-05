@@ -12,146 +12,259 @@ const repositoryUrl =
   "https://github.com/adnan-bin-wahid/Tokenwise-updated";
 const guideUrl =
   "https://github.com/adnan-bin-wahid/Tokenwise-updated/blob/main/demonstation.md";
+const demoReposUrl =
+  "https://github.com/adnan-bin-wahid/Tokenwise-updated/blob/main/demonstration/README.md";
 
 const specs = [
   {
-    requirement: "Editor",
-    details: "Antigravity IDE with workspace rules and a command tool",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
+      </svg>
+    ),
+    requirement: "Editor & IDE",
+    badge: "Antigravity Ready",
+    badgeType: "primary",
+    details: "Antigravity IDE with workspace rules and a command tool enabled.",
   },
   {
-    requirement: "Python",
-    details: "64-bit Python 3.12 installation (Python 3.13/3.14 alone is not sufficient)",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+        <path d="M2 17l10 5 10-5" />
+        <path d="M2 12l10 5 10-5" />
+      </svg>
+    ),
+    requirement: "Python Runtime",
+    badge: "64-bit Python 3.12",
+    badgeType: "emerald",
+    details: "A 64-bit Python 3.12 installation. Python 3.13/3.14 alone is not sufficient; use official Python Install Manager.",
   },
   {
-    requirement: "Repository",
-    details: "A local folder containing Python source code",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+      </svg>
+    ),
+    requirement: "Target Repository",
+    badge: "Any Local Folder",
+    badgeType: "neutral",
+    details: "A local directory containing Python source files. The project does not need to sit inside any TokenWise checkout.",
   },
   {
-    requirement: "Internet",
-    details: "Needed once for initial dependency and model downloads; retrieval runs locally afterward",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" />
+        <line x1="2" y1="12" x2="22" y2="12" />
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      </svg>
+    ),
+    requirement: "Network Access",
+    badge: "First-run Only",
+    badgeType: "neutral",
+    details: "Needed only once to download packaging tools and ~1.35 GB pinned weights. All retrieval runs 100% locally afterward.",
   },
   {
-    requirement: "Disk",
-    details: "Allow about 10 GB free for the environment, model weights (~1.35 GB), and package caches",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <ellipse cx="12" cy="5" rx="9" ry="3" />
+        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+      </svg>
+    ),
+    requirement: "Disk Storage",
+    badge: "10 GB Free",
+    badgeType: "amber",
+    details: "Allow about 10 GB free space for the private Python virtualenv, cached wheels, and SHA-256 verified model weights.",
   },
   {
-    requirement: "Memory & Compute",
-    details: "8 GB RAM recommendation. Runs entirely on CPU; no GPU, Ollama, or MCP server required",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="4" y="4" width="16" height="16" rx="2" />
+        <rect x="9" y="9" width="6" height="6" />
+        <line x1="9" y1="1" x2="9" y2="4" />
+        <line x1="15" y1="1" x2="15" y2="4" />
+        <line x1="9" y1="20" x2="9" y2="23" />
+        <line x1="15" y1="20" x2="15" y2="23" />
+        <line x1="20" y1="9" x2="23" y2="9" />
+        <line x1="20" y1="14" x2="23" y2="14" />
+        <line x1="1" y1="9" x2="4" y2="9" />
+        <line x1="1" y1="14" x2="4" y2="14" />
+      </svg>
+    ),
+    requirement: "Hardware & Compute",
+    badge: "100% CPU Sufficient",
+    badgeType: "emerald",
+    details: "8 GB RAM practical recommendation. Runs purely on CPU; no GPU, no Ollama, and no external MCP server required.",
   },
   {
-    requirement: "API Keys",
-    details: "TokenWise itself does not require an API key. Your Antigravity model access remains separate",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      </svg>
+    ),
+    requirement: "API Billing & Keys",
+    badge: "Zero Extra Keys",
+    badgeType: "emerald",
+    details: "TokenWise does not require an API key or external service account. Your Antigravity model billing remains completely separate.",
   },
 ];
 
 const quickStartSteps = [
   {
     num: "1",
-    title: "Install TokenWise VSIX",
-    text: "Download tokenwise-vscode-0.6.3.vsix. In Antigravity: open Extensions view, click the '...' menu, choose 'Install from VSIX...', select the downloaded file, and reload the editor window when prompted. (F5 is only for extension developers).",
-    code: "# Download VSIX directly from GitHub Releases\n# In Antigravity: Extensions > ... > Install from VSIX...",
+    tag: "Installation",
+    title: "Install TokenWise VSIX in Antigravity",
+    desc: "Download tokenwise-vscode-0.6.3.vsix. In Antigravity: open Extensions view, click the '...' menu, choose 'Install from VSIX...', select the downloaded file, and reload the editor window when prompted. (F5 is only for extension developers).",
+    codeLabel: "Antigravity Extensions View",
+    code: "# 1. Download tokenwise-vscode-0.6.3.vsix\n# 2. In Antigravity: Extensions (Ctrl+Shift+X) > ... > Install from VSIX...\n# 3. Click 'Reload Window' when prompted",
   },
   {
     num: "2",
-    title: "Open Your Python Repository",
-    text: "Use File > Open Folder and select your local Python project folder (e.g., C:\\Projects\\my-python-app). The folder does not need to sit inside any TokenWise checkout.",
-    code: "# In Antigravity:\nFile > Open Folder -> Select your local Python project",
+    tag: "Workspace",
+    title: "Open Your Local Python Repository",
+    desc: "Use File > Open Folder and select your project, for example C:\\Projects\\my-python-app. The folder can be located anywhere on disk; it does not need to sit inside a TokenWise checkout.",
+    codeLabel: "Antigravity Menu",
+    code: "File > Open Folder -> C:\\Projects\\my-python-app\n# Trust workspace contents when prompted",
   },
   {
     num: "3",
-    title: "Enable Automatic Context",
-    text: "Open the Command Palette (Ctrl+Shift+P) and run 'TokenWise: Enable Automatic Context'. On a new machine, choose 'Install Managed Backend' to create a private Python environment and download pinned weights.",
-    code: "# Command Palette (Ctrl+Shift+P):\nTokenWise: Enable Automatic Context\n-> Choose 'Install Managed Backend'",
+    tag: "Configuration",
+    title: "Enable Automatic Context in Antigravity",
+    desc: "Open the Command Palette (Ctrl+Shift+P) and execute 'TokenWise: Enable Automatic Context'. On first setup, select 'Install Managed Backend' to create a private environment and download weights automatically.",
+    codeLabel: "Antigravity Command Palette (Ctrl+Shift+P)",
+    code: "> TokenWise: Enable Automatic Context\n-> Select: [ Install Managed Backend ]\n# Automated 7-step setup executes in background",
   },
   {
     num: "4",
-    title: "Enter Your Normal Prompt",
-    text: "Start a new Antigravity chat and enter your question. The backend automatically injects bounded [TokenWise automatic context] with exact code snippets and tests without asking you to pick files manually.",
-    code: "> Explain the login failure handling and its related tests.\n[TokenWise automatic context]\n# Retrieved: auth/service.py, tests/test_auth.py",
+    tag: "Execution",
+    title: "Enter Your Normal Coding Prompt",
+    desc: "Start a new Antigravity chat and enter your question. The backend starts automatically and injects bounded [TokenWise automatic context] with exact code snippets and tests without asking you to pick files.",
+    codeLabel: "Antigravity Agent Chat",
+    code: "> Explain the login failure handling and its related tests.\n[TokenWise automatic context]\n# Retrieved: auth/service.py (lines 45-82)\n# Retrieved: tests/test_auth.py (lines 12-38)",
   },
 ];
 
 const setupPipeline = [
   {
     step: "1",
-    name: "Prerequisites",
-    what: "Finds 64-bit Python 3.12 and verifies bundled files.",
-    fix: "Install Python 3.12 with pymanager install 3.12, restart Antigravity. Set TokenWise > Python Path if custom.",
+    name: "Prerequisites Verification",
+    what: "Finds 64-bit Python 3.12 and verifies bundled distribution files.",
+    fix: "Install Python 3.12 with pymanager install 3.12, restart Antigravity. For custom location, set TokenWise > Python Path.",
   },
   {
     step: "2",
-    name: "Backend files",
-    what: "Copies verified backend files into private user storage.",
-    fix: "Check free disk space and permissions for storage path, then click Retry Failed Step.",
+    name: "Backend Files Deployment",
+    what: "Copies verified backend files into isolated private user storage.",
+    fix: "Check free disk space and write permissions for the logged storage path, then click Retry Failed Step.",
   },
   {
     step: "3",
-    name: "Environment",
-    what: "Creates or checks TokenWise's private Python virtual environment.",
-    fix: "Repair Python 3.12 installation if needed. A broken private environment is recreated automatically.",
+    name: "Environment Creation",
+    what: "Creates and configures TokenWise's private Python virtual environment.",
+    fix: "Repair Python 3.12 installation if corrupted. Broken environments are automatically recreated; model caches are preserved.",
   },
   {
     step: "4",
-    name: "Dependencies",
+    name: "Dependency Installation",
     what: "Installs packaging tools, CPU PyTorch, and backend dependencies.",
-    fix: "Check internet connection to PyPI and download.pytorch.org. Retry reuses completed substeps.",
+    fix: "Verify internet/proxy access to PyPI and download.pytorch.org. Retry automatically reuses validated wheels.",
   },
   {
     step: "5",
-    name: "Model Weights",
-    what: "Downloads ~1.35 GB of pinned weights and verifies SHA-256 checksum.",
-    fix: "Check Hugging Face access and disk space. Partial downloads resume when permitted by server.",
+    name: "Model Weights & Checksum",
+    what: "Downloads ~1.35 GB of pinned weights and verifies SHA-256 hash.",
+    fix: "Check access to Hugging Face and available disk space. Partial downloads are resumed when supported.",
   },
   {
     step: "6",
-    name: "Verification",
-    what: "Checks imports, tokenizer, and trained carbon artifacts.",
-    fix: "Read the import error in Output > TokenWise Setup, fix reported system issue, and click Retry.",
+    name: "Self-Verification Test",
+    what: "Checks Python imports, tokenizer, and trained carbon artifacts.",
+    fix: "Inspect Output > TokenWise Setup error log, resolve reported system/library issue, then click Retry.",
   },
   {
     step: "7",
-    name: "Registration",
-    what: "Saves the verified backend and configures workspace rules and hooks.",
-    fix: "Check storage/settings permissions and retry. Verified environment and weights remain intact.",
+    name: "Registration & Rules",
+    what: "Saves verified backend settings and configures workspace rule hooks.",
+    fix: "Ensure settings storage permissions are writable. Existing user rules and context budgets are fully preserved.",
   },
 ];
 
 const pruningCapabilities = [
   {
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+        <line x1="12" y1="22.08" x2="12" y2="12" />
+      </svg>
+    ),
     title: "Bounded Context Pruning",
-    desc: "Eliminates token waste by bounding context to exact relevant definitions and call sites, avoiding noisy full-file dumps.",
+    desc: "Eliminates token bloat by bounding retrieved context to exact relevant definitions, functions, and call sites without dumping noisy full files.",
   },
   {
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+    ),
     title: "Automatic Repository Discovery",
-    desc: "Discovers Python source modules, dependency graphs, and test suites automatically across local repositories.",
+    desc: "Scans and indexes Python source files, AST symbol trees, dependency graphs, and test suites across the workspace automatically.",
   },
   {
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
+      </svg>
+    ),
     title: "100% Local CPU Execution",
-    desc: "Retrieval and pruning run locally on your CPU. No GPU, no Ollama, no external MCP server, and no extra API keys required.",
+    desc: "Zero external cloud dependencies or server calls. Pruning and retrieval run entirely on your CPU with private model weights.",
   },
   {
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+      </svg>
+    ),
     title: "Automatic Carbon & Token Accounting",
-    desc: "Measures token savings and energy efficiency directly, ensuring sustainable context usage for large agent sessions.",
+    desc: "Measures token reduction and energy footprint directly, ensuring sustainable context utilization across large agent sessions.",
   },
   {
-    title: "Antigravity Workspace Integration",
-    desc: "Merges seamlessly via workspace rules and command hooks without modifying existing application source files.",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    ),
+    title: "Antigravity Workspace Isolation",
+    desc: "Integrates smoothly via workspace rule hooks without altering application code or corrupting existing IDE settings.",
   },
   {
-    title: "Teacher & Demonstration Bundle",
-    desc: "Includes 4 independent Python demo repositories, input-trace, and packet-comparison verification commands.",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+      </svg>
+    ),
+    title: "Teacher & Demonstration Suite",
+    desc: "Includes 4 independent Python demo repositories, input-trace, and packet-comparison verification commands for presentations.",
   },
 ];
 
 export default function Home() {
   return (
     <main>
-      {/* Navigation with Brand Logo */}
+      {/* Navigation Bar */}
       <nav className="nav" aria-label="Main navigation">
-        <Link className="brand" href="#top" aria-label="TokenWise Home">
+        <Link className="brand" href="#top" aria-label="TokenWise Antigravity Extension Home">
           <Image
             src="/tokenwise_logo.svg"
-            alt="TokenWise Brand Logo"
+            alt="TokenWise Official Logo"
             width={34}
             height={34}
             className="brandLogo"
@@ -177,7 +290,7 @@ export default function Home() {
         </a>
       </nav>
 
-      {/* Hero Section (Strictly Middle Aligned, 3D Aesthetic Studio Background, White Theme) */}
+      {/* Hero Section (Strictly Middle Aligned, 3D Studio Background, White Theme) */}
       <section className="hero" id="top">
         <HeroScene />
         <div className="heroContainer">
@@ -185,7 +298,7 @@ export default function Home() {
           <div className="heroLogoWrapper">
             <Image
               src="/tokenwise_logo.svg"
-              alt="TokenWise Official Logo"
+              alt="TokenWise Antigravity Extension Logo"
               width={76}
               height={76}
               priority
@@ -218,7 +331,7 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Perfected Antigravity Installation Box with Official Antigravity Logo */}
+          {/* Perfected Antigravity Installation Box with Official Antigravity Logo & Extra Breathing Room */}
           <div className="installHighlightBox" role="region" aria-label="Antigravity installation instructions">
             <div className="installHighlightHeader">
               <div className="antigravityBrandHeading">
@@ -292,54 +405,69 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Metrics Bar */}
+      {/* Metrics Bar with Elevated Micro-card Styling */}
       <section className="metricsBar" aria-label="Key specifications">
         <div className="metricItem">
-          <span className="metricValue">100% Local CPU</span>
+          <div className="metricBadge">100% Local</div>
+          <span className="metricValue">Local CPU</span>
           <span className="metricLabel">No GPU, Ollama, or MCP server required</span>
         </div>
         <div className="metricItem">
+          <div className="metricBadge">Pinned &amp; Verified</div>
           <span className="metricValue">~1.35 GB</span>
-          <span className="metricLabel">Pinned model weights verified by SHA-256</span>
+          <span className="metricLabel">Model weights verified with SHA-256 hash</span>
         </div>
         <div className="metricItem">
-          <span className="metricValue">Zero Manual Picking</span>
-          <span className="metricLabel">Automatic retrieval of relevant code & tests</span>
+          <div className="metricBadge">Smart Discovery</div>
+          <span className="metricValue">Zero Picking</span>
+          <span className="metricLabel">Automatic retrieval of relevant code &amp; tests</span>
         </div>
         <div className="metricItem">
+          <div className="metricBadge">Verified Runtime</div>
           <span className="metricValue">Python 3.12</span>
           <span className="metricLabel">Windows-tested beta with managed backend</span>
         </div>
       </section>
 
-      {/* Specifications Table */}
+      {/* System Requirements & Specifications Matrix */}
       <section className="section sectionWhite" id="specs">
         <div className="container">
           <div className="sectionHeader">
             <p className="sectionEyebrow">System Requirements</p>
-            <h2 className="sectionTitle">Prerequisites & System Specifications</h2>
+            <h2 className="sectionTitle">Prerequisites &amp; Environment Matrix</h2>
             <p className="sectionSubtitle">
-              TokenWise is designed for privacy and predictable local execution. Review the verified environment requirements before starting.
+              TokenWise is built for predictable local execution. Review the requirements and run the quick Python verification check below.
             </p>
           </div>
 
-          <div className="specTableWrapper">
-            <table className="specTable">
-              <thead>
-                <tr>
-                  <th scope="col">Requirement</th>
-                  <th scope="col">Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                {specs.map((item) => (
-                  <tr key={item.requirement}>
-                    <td className="specRequirement">{item.requirement}</td>
-                    <td>{item.details}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          {/* PowerShell Python 3.12 Quick Check Callout */}
+          <div className="terminalCheckCard">
+            <div className="terminalCheckHeader">
+              <span className="terminalCheckDot" />
+              <span className="terminalCheckTitle">Windows PowerShell: Install or Verify 64-bit Python 3.12</span>
+            </div>
+            <pre className="terminalCheckCode">
+              <code>
+                pymanager install 3.12{"\n"}
+                py -3.12 -c &quot;import sys,struct; print(sys.version); print(struct.calcsize(&apos;P&apos;)*8); print(sys.executable)&quot;
+              </code>
+            </pre>
+            <div className="terminalCheckNote">
+              Output must display <strong>3.12.x</strong>, <strong>64</strong>, and the executable path.
+            </div>
+          </div>
+
+          <div className="specGrid">
+            {specs.map((item) => (
+              <div className="specCard" key={item.requirement}>
+                <div className="specCardTop">
+                  <div className="specIconWrapper">{item.icon}</div>
+                  <span className={`specPill specPill_${item.badgeType}`}>{item.badge}</span>
+                </div>
+                <h3 className="specCardName">{item.requirement}</h3>
+                <p className="specCardDetails">{item.details}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -348,20 +476,24 @@ export default function Home() {
       <section className="section sectionLight" id="quickstart">
         <div className="container">
           <div className="sectionHeader">
-            <p className="sectionEyebrow">Step-by-Step Guide</p>
+            <p className="sectionEyebrow">Step-by-Step Workflow</p>
             <h2 className="sectionTitle">Get Started in Antigravity in 4 Moves</h2>
             <p className="sectionSubtitle">
-              No need to clone repositories, compile extensions, or manually run servers. Install the VSIX and let TokenWise manage the rest.
+              No need to clone repositories, build from source, or press F5. Install the VSIX in Antigravity and prompt normally.
             </p>
           </div>
 
           <div className="stepsGrid">
             {quickStartSteps.map((step) => (
               <div className="stepCard" key={step.num}>
-                <div className="stepNumber">0{step.num}</div>
+                <div className="stepCardTop">
+                  <div className="stepNumber">0{step.num}</div>
+                  <span className="stepTag">{step.tag}</span>
+                </div>
                 <h3 className="stepTitle">{step.title}</h3>
-                <p className="stepText">{step.text}</p>
+                <p className="stepText">{step.desc}</p>
                 <div className="codeSnippet">
+                  <div className="codeSnippetLabel">{step.codeLabel}</div>
                   <code>{step.code}</code>
                 </div>
               </div>
@@ -370,14 +502,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Setup Pipeline 7 Steps */}
+      {/* 7-Step Managed Backend Setup Pipeline */}
       <section className="section sectionWhite" id="pipeline">
         <div className="container">
           <div className="sectionHeader">
-            <p className="sectionEyebrow">Backend Automation</p>
-            <h2 className="sectionTitle">7-Step Managed Backend Setup</h2>
+            <p className="sectionEyebrow">Automated Setup Pipeline</p>
+            <h2 className="sectionTitle">7-Step Managed Backend Lifecycle</h2>
             <p className="sectionSubtitle">
-              When you run &apos;TokenWise: Enable Automatic Context&apos;, TokenWise handles setup in 7 validated stages. If any step fails, you can retry without starting from scratch.
+              Executing &apos;TokenWise: Enable Automatic Context&apos; runs through 7 validated stages. If a step fails, you can retry without starting from scratch.
             </p>
           </div>
 
@@ -385,12 +517,14 @@ export default function Home() {
             {setupPipeline.map((item) => (
               <div className="pipelineCard" key={item.step}>
                 <div className="pipelineHeader">
-                  <span className="pipelineStepNum">Step {item.step}/7</span>
+                  <span className="pipelineStepNum">Stage {item.step}/7</span>
+                  <span className="pipelineStatus">Auto-Validated</span>
                 </div>
-                <h3>{item.name}</h3>
-                <p>{item.what}</p>
+                <h3 className="pipelineTitle">{item.name}</h3>
+                <p className="pipelineWhat">{item.what}</p>
                 <div className="pipelineFix">
-                  <strong>Recovery:</strong> {item.fix}
+                  <span className="pipelineFixLabel">Recovery Advice:</span>
+                  <span>{item.fix}</span>
                 </div>
               </div>
             ))}
@@ -398,11 +532,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Architecture & Capabilities */}
+      {/* Sustainable Context Architecture & Capabilities */}
       <section className="section sectionLight" id="capabilities">
         <div className="container">
           <div className="sectionHeader">
-            <p className="sectionEyebrow">Core Capabilities</p>
+            <p className="sectionEyebrow">Core Engine</p>
             <h2 className="sectionTitle">Sustainable Context Architecture</h2>
             <p className="sectionSubtitle">
               Engineered to prune away noise, respect token budgets, and provide Antigravity agents with accurate code context.
@@ -412,59 +546,88 @@ export default function Home() {
           <div className="featuresGrid">
             {pruningCapabilities.map((cap) => (
               <div className="featureCard" key={cap.title}>
-                <div className="featureIconBox">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </div>
+                <div className="featureIconBox">{cap.icon}</div>
                 <h3>{cap.title}</h3>
                 <p>{cap.desc}</p>
               </div>
             ))}
           </div>
 
-          {/* Verification Box */}
+          {/* Verification Box - Authentic Antigravity Status Indicators */}
           <div className="verifyBox">
             <div className="verifyCard">
-              <h4>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <circle cx="12" cy="12" r="10" />
-                  <polyline points="12 6 12 12 14 14" />
-                </svg>
-                Customizations &gt; Rules
-              </h4>
-              <p>A TokenWise workspace rule is listed automatically under your Antigravity customizations.</p>
+              <div className="verifyCardHeader">
+                <span className="verifyCardIcon">📋</span>
+                <h4>Customizations &gt; Rules</h4>
+              </div>
+              <p>A TokenWise workspace rule is listed automatically under your active Antigravity workspace rules.</p>
             </div>
             <div className="verifyCard">
-              <h4>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                </svg>
-                Agent Chat Responses
-              </h4>
-              <p>The agent runs the context command and displays <code>[TokenWise automatic context]</code> before generating answers.</p>
+              <div className="verifyCardHeader">
+                <span className="verifyCardIcon">💬</span>
+                <h4>Agent Chat Responses</h4>
+              </div>
+              <p>The agent executes the context command and displays <code>[TokenWise automatic context]</code> before formulating code solutions.</p>
             </div>
             <div className="verifyCard">
-              <h4>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <polyline points="4 17 10 11 4 5" />
-                  <line x1="12" y1="19" x2="20" y2="19" />
-                </svg>
-                Output Logs
-              </h4>
-              <p>Full installation and indexing progress can be checked in <code>Output &gt; TokenWise Setup</code> and <code>TokenWise Index</code>.</p>
+              <div className="verifyCardHeader">
+                <span className="verifyCardIcon">🔍</span>
+                <h4>Output Log Verification</h4>
+              </div>
+              <p>Open <code>Output &gt; TokenWise Setup</code> and <code>Output &gt; TokenWise Index</code> to confirm indexed Python files and health status.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Demonstration & Teacher Bundle Section */}
+      <section className="section sectionWhite" id="demo">
+        <div className="container">
+          <div className="demonstrationCard">
+            <div className="demonstrationContent">
+              <span className="demonstrationEyebrow">Evaluation &amp; Presentation</span>
+              <h2 className="demonstrationTitle">Demonstration Guide &amp; 4 Test Repositories</h2>
+              <p className="demonstrationDesc">
+                TokenWise 0.6.3 provides an official teacher demonstration bundle with 4 independent Python demo repositories, input-trace inspection commands, and packet-comparison verification.
+              </p>
+              <div className="demonstrationLinks">
+                <a className="primaryBtn" href={bundleDownloadUrl} target="_blank" rel="noopener noreferrer">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                    <line x1="12" y1="22.08" x2="12" y2="12" />
+                  </svg>
+                  Download Demonstration Bundle (.zip)
+                </a>
+                <a className="secondaryBtn" href={guideUrl} target="_blank" rel="noopener noreferrer">
+                  View Demonstration Guide
+                </a>
+                <a className="secondaryBtn" href={demoReposUrl} target="_blank" rel="noopener noreferrer">
+                  Demo Repositories Info
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Final Download Call to Action */}
-      <section className="section sectionWhite">
+      <section className="section sectionLight">
         <div className="container">
           <div className="ctaCard">
+            <div className="ctaBadge">
+              <Image
+                src="/antigravity_app_icon.png"
+                alt="Antigravity IDE Logo"
+                width={20}
+                height={20}
+                className="ctaAntigravityLogo"
+              />
+              <span>Antigravity IDE Extension • Release v0.6.3</span>
+            </div>
             <h2>Download TokenWise for Antigravity</h2>
             <p>
-              Get bounded context retrieval for your Python repositories. Install the 0.6.3 VSIX in Antigravity and start prompting sustainably.
+              Experience bounded context retrieval for your Python repositories. Download the official VSIX file, install in Antigravity, and start coding sustainably.
             </p>
             <div className="ctaActions">
               <a className="ctaBtnPrimary" href={vsixDownloadUrl} download>
@@ -476,7 +639,7 @@ export default function Home() {
                 Download VSIX (.vsix)
               </a>
               <a className="ctaBtnSecondary" href={bundleDownloadUrl} target="_blank" rel="noopener noreferrer">
-                Complete Demonstration Bundle (.zip)
+                Demonstration Bundle (.zip)
               </a>
               <a className="ctaBtnSecondary" href={repositoryUrl} target="_blank" rel="noopener noreferrer">
                 GitHub Repository
@@ -496,12 +659,12 @@ export default function Home() {
               width={26}
               height={26}
             />
-            <span><strong>TokenWise</strong> &bull; Sustainable Context Optimization for Coding Agents</span>
+            <span><strong>TokenWise</strong> &bull; Sustainable Context Optimization for Antigravity Coding Agents</span>
           </div>
           <div className="footerLinks">
-            <Link href={repositoryUrl} target="_blank" rel="noopener noreferrer">GitHub Repository</Link>
-            <Link href={releaseUrl} target="_blank" rel="noopener noreferrer">v0.6.3 Release</Link>
-            <Link href={guideUrl} target="_blank" rel="noopener noreferrer">Teacher Guide</Link>
+            <Link href={repositoryUrl} target="_blank" rel="noopener noreferrer">GitHub</Link>
+            <Link href={releaseUrl} target="_blank" rel="noopener noreferrer">Release v0.6.3</Link>
+            <Link href={guideUrl} target="_blank" rel="noopener noreferrer">Demonstration Guide</Link>
             <Link href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Python 3.12</Link>
           </div>
         </div>
