@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { HeroScene } from "@/components/HeroScene";
-import { SectionGeoCluster } from "@/components/GeometricShapes";
 
 const vsixDownloadUrl =
   "https://github.com/adnan-bin-wahid/Tokenwise-updated/releases/download/v0.6.3/tokenwise-vscode-0.6.3.vsix";
@@ -420,7 +419,6 @@ export default function Home() {
 
       {/* System Requirements & Specifications Matrix */}
       <section className="section sectionWhite" id="specs">
-        <SectionGeoCluster variant="specs" />
         <div className="container">
           <div className="sectionHeader">
             <p className="sectionEyebrow">System Requirements</p>
@@ -463,7 +461,6 @@ export default function Home() {
 
       {/* Quick Start 4 Steps */}
       <section className="section sectionLight" id="quickstart">
-        <SectionGeoCluster variant="quickstart" />
         <div className="container">
           <div className="sectionHeader">
             <p className="sectionEyebrow">Step-by-Step Workflow</p>
@@ -493,13 +490,12 @@ export default function Home() {
 
       {/* 7-Step Managed Backend Setup Pipeline */}
       <section className="section sectionWhite" id="pipeline">
-        <SectionGeoCluster variant="pipeline" />
         <div className="container">
           <div className="sectionHeader">
             <p className="sectionEyebrow">Automated Setup Pipeline</p>
             <h2 className="sectionTitle">7-Step Managed Backend Lifecycle</h2>
             <p className="sectionSubtitle">
-              Executing &apos;TokenWise: Enable Automatic Context&apos; runs through 7 validated stages. If a step fails, you can retry without starting from scratch.
+              Executing &apos;TokenWise: Enable Automatic Context&apos; runs through 7 validated stages to automatically initialize the private Python environment.
             </p>
           </div>
 
@@ -511,10 +507,6 @@ export default function Home() {
                 </div>
                 <h3 className="pipelineTitle">{item.name}</h3>
                 <p className="pipelineWhat">{item.what}</p>
-                <div className="pipelineFix">
-                  <span className="pipelineFixLabel">Recovery Advice:</span>
-                  <span>{item.fix}</span>
-                </div>
               </div>
             ))}
           </div>
@@ -523,7 +515,6 @@ export default function Home() {
 
       {/* Sustainable Context Architecture & Capabilities */}
       <section className="section sectionLight" id="capabilities">
-        <SectionGeoCluster variant="capabilities" />
         <div className="container">
           <div className="sectionHeader">
             <p className="sectionEyebrow">Core Engine</p>
@@ -572,7 +563,6 @@ export default function Home() {
 
       {/* Demonstration & Teacher Bundle Section */}
       <section className="section sectionWhite" id="demo">
-        <SectionGeoCluster variant="demo" />
         <div className="container">
           <div className="demonstrationCard">
             <div className="demonstrationContent">
@@ -603,7 +593,6 @@ export default function Home() {
 
       {/* Final Download Call to Action */}
       <section className="section sectionLight">
-        <SectionGeoCluster variant="cta" />
         <div className="container">
           <div className="ctaCard">
             <h2>Download TokenWise for Antigravity</h2>

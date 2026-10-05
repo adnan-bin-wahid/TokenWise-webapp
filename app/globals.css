@@ -702,11 +702,26 @@ main {
   color: #f8fafc;
 }
 
-/* Spec Matrix Grid */
+/* Spec Matrix Grid - 2 Rows (Row 1: 4 prerequisites, Row 2: 3 prerequisites) */
 .specGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  grid-template-columns: repeat(12, 1fr);
   gap: 1.35rem;
+}
+
+/* Row 1: Items 1 to 4 */
+.specCard:nth-child(1),
+.specCard:nth-child(2),
+.specCard:nth-child(3),
+.specCard:nth-child(4) {
+  grid-column: span 3;
+}
+
+/* Row 2: Items 5 to 7 */
+.specCard:nth-child(5),
+.specCard:nth-child(6),
+.specCard:nth-child(7) {
+  grid-column: span 4;
 }
 
 .specCard {
@@ -720,6 +735,7 @@ main {
   gap: 0.65rem;
   transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
   position: relative;
+  height: 100%;
 }
 
 .specCard:hover {
@@ -1270,6 +1286,20 @@ main {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .specGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .specCard:nth-child(1),
+  .specCard:nth-child(2),
+  .specCard:nth-child(3),
+  .specCard:nth-child(4),
+  .specCard:nth-child(5),
+  .specCard:nth-child(6),
+  .specCard:nth-child(7) {
+    grid-column: auto;
+  }
+
   .pipelineGrid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1304,6 +1334,10 @@ main {
   }
 
   .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .specGrid {
     grid-template-columns: 1fr;
   }
 
