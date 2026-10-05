@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { HeroScene } from "@/components/HeroScene";
+import { SectionGeoCluster } from "@/components/GeometricShapes";
 
 const vsixDownloadUrl =
   "https://github.com/adnan-bin-wahid/Tokenwise-updated/releases/download/v0.6.3/tokenwise-vscode-0.6.3.vsix";
@@ -103,16 +104,16 @@ const quickStartSteps = [
   {
     num: "1",
     title: "Install TokenWise VSIX in Antigravity",
-    desc: "Download tokenwise-vscode-0.6.3.vsix. In Antigravity: open Extensions view, click the '...' menu, choose 'Install from VSIX...', select the downloaded file, and reload the editor window when prompted. (F5 is only for extension developers).",
+    desc: "Download tokenwise-vscode-0.6.3.vsix. In Antigravity: open Extensions view, click the '...' menu, choose 'Install from VSIX...', select the downloaded file, and reload the editor window when prompted.",
     codeLabel: "Antigravity Extensions View",
-    code: "# 1. Download tokenwise-vscode-0.6.3.vsix\n# 2. In Antigravity: Extensions (Ctrl+Shift+X) > ... > Install from VSIX...\n# 3. Click 'Reload Window' when prompted",
+    code: "# 1. Extensions (Ctrl+Shift+X) > ... menu\n> Install from VSIX... (Select .vsix file)\n# Click 'Reload Window' when prompted",
   },
   {
     num: "2",
     title: "Open Your Local Python Repository",
-    desc: "Use File > Open Folder and select your project, for example C:\\Projects\\my-python-app. The folder can be located anywhere on disk; it does not need to sit inside a TokenWise checkout.",
+    desc: "Use File > Open Folder and select your project. The folder can be located anywhere on disk; it does not need to sit inside any TokenWise checkout. Target repository can be configured if desired.",
     codeLabel: "Antigravity Menu",
-    code: "File > Open Folder -> C:\\Projects\\my-python-app\n# Trust workspace contents when prompted",
+    code: "File > Open Folder -> C:\\Projects\\my-python-app\n# Target repository runs anywhere on your disk\n# Trust workspace contents when prompted",
   },
   {
     num: "3",
@@ -126,7 +127,7 @@ const quickStartSteps = [
     title: "Enter Your Normal Coding Prompt",
     desc: "Start a new Antigravity chat and enter your question. The backend starts automatically and injects bounded [TokenWise automatic context] with exact code snippets and tests without asking you to pick files.",
     codeLabel: "Antigravity Agent Chat",
-    code: "> Explain the login failure handling and its related tests.\n[TokenWise automatic context]\n# Retrieved: auth/service.py (lines 45-82)\n# Retrieved: tests/test_auth.py (lines 12-38)",
+    code: "> Explain login failure handling and related tests\n[TokenWise automatic context] injected\n# Retrieved: auth/service.py & tests/test_auth.py",
   },
 ];
 
@@ -419,6 +420,7 @@ export default function Home() {
 
       {/* System Requirements & Specifications Matrix */}
       <section className="section sectionWhite" id="specs">
+        <SectionGeoCluster variant="specs" />
         <div className="container">
           <div className="sectionHeader">
             <p className="sectionEyebrow">System Requirements</p>
@@ -461,6 +463,7 @@ export default function Home() {
 
       {/* Quick Start 4 Steps */}
       <section className="section sectionLight" id="quickstart">
+        <SectionGeoCluster variant="quickstart" />
         <div className="container">
           <div className="sectionHeader">
             <p className="sectionEyebrow">Step-by-Step Workflow</p>
@@ -490,6 +493,7 @@ export default function Home() {
 
       {/* 7-Step Managed Backend Setup Pipeline */}
       <section className="section sectionWhite" id="pipeline">
+        <SectionGeoCluster variant="pipeline" />
         <div className="container">
           <div className="sectionHeader">
             <p className="sectionEyebrow">Automated Setup Pipeline</p>
@@ -519,6 +523,7 @@ export default function Home() {
 
       {/* Sustainable Context Architecture & Capabilities */}
       <section className="section sectionLight" id="capabilities">
+        <SectionGeoCluster variant="capabilities" />
         <div className="container">
           <div className="sectionHeader">
             <p className="sectionEyebrow">Core Engine</p>
@@ -567,6 +572,7 @@ export default function Home() {
 
       {/* Demonstration & Teacher Bundle Section */}
       <section className="section sectionWhite" id="demo">
+        <SectionGeoCluster variant="demo" />
         <div className="container">
           <div className="demonstrationCard">
             <div className="demonstrationContent">
@@ -597,6 +603,7 @@ export default function Home() {
 
       {/* Final Download Call to Action */}
       <section className="section sectionLight">
+        <SectionGeoCluster variant="cta" />
         <div className="container">
           <div className="ctaCard">
             <h2>Download TokenWise for Antigravity</h2>
