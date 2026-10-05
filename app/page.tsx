@@ -206,7 +206,7 @@ export default function Home() {
               Download for Antigravity (.vsix)
             </a>
             <a className="secondaryBtn" href={bundleDownloadUrl} target="_blank" rel="noopener noreferrer">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
                 <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
                 <line x1="12" y1="22.08" x2="12" y2="12" />
@@ -218,31 +218,74 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Highlighted and Bold Antigravity Installation Box */}
+          {/* Perfected Antigravity Installation Box with Official Antigravity Logo */}
           <div className="installHighlightBox" role="region" aria-label="Antigravity installation instructions">
             <div className="installHighlightHeader">
-              <span className="installHighlightIcon">⚡</span>
-              <span className="installHighlightTitle">How to add in Antigravity:</span>
+              <div className="antigravityBrandHeading">
+                <div className="antigravityLogoWrapper">
+                  <Image
+                    src="/antigravity_app_icon.png"
+                    alt="Antigravity IDE official logo"
+                    width={32}
+                    height={32}
+                    className="antigravityLogoImg"
+                    priority
+                  />
+                </div>
+                <h2 className="installHighlightTitle">How to add in Antigravity:</h2>
+              </div>
+              <span className="installBadgeTag">Fast Setup</span>
             </div>
-            <div className="installHighlightSteps">
-              <div className="installStepItem">
-                <span className="installStepNum">1</span>
-                <span><strong>Download the file</strong> (<code>.vsix</code>)</span>
+
+            <div className="installStepsGrid">
+              {/* Step 1 */}
+              <div className="installStepCard">
+                <div className="stepCardHeader">
+                  <span className="installStepNum">1</span>
+                  <span className="stepCardTitle">Download</span>
+                </div>
+                <p className="stepCardDesc">
+                  Download the <a href={vsixDownloadUrl} download className="inlineVsixLink"><code>.vsix</code></a> file to your computer.
+                </p>
               </div>
-              <span className="stepArrow">→</span>
-              <div className="installStepItem">
-                <span className="installStepNum">2</span>
-                <span>Open <strong>Extensions</strong> (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>)</span>
+
+              <div className="stepConnector" aria-hidden="true">→</div>
+
+              {/* Step 2 */}
+              <div className="installStepCard">
+                <div className="stepCardHeader">
+                  <span className="installStepNum">2</span>
+                  <span className="stepCardTitle">Open Extensions</span>
+                </div>
+                <p className="stepCardDesc">
+                  In Antigravity: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>
+                </p>
               </div>
-              <span className="stepArrow">→</span>
-              <div className="installStepItem">
-                <span className="installStepNum">3</span>
-                <span>Click <strong>...</strong> menu → <strong>Install from VSIX...</strong></span>
+
+              <div className="stepConnector" aria-hidden="true">→</div>
+
+              {/* Step 3 */}
+              <div className="installStepCard">
+                <div className="stepCardHeader">
+                  <span className="installStepNum">3</span>
+                  <span className="stepCardTitle">Install from VSIX</span>
+                </div>
+                <p className="stepCardDesc">
+                  Click <strong><code>...</code></strong> menu → <strong>Install from VSIX...</strong>
+                </p>
               </div>
-              <span className="stepArrow">→</span>
-              <div className="installStepItem">
-                <span className="installStepNum">4</span>
-                <span>Select file &amp; <strong>Reload</strong></span>
+
+              <div className="stepConnector" aria-hidden="true">→</div>
+
+              {/* Step 4 */}
+              <div className="installStepCard">
+                <div className="stepCardHeader">
+                  <span className="installStepNum">4</span>
+                  <span className="stepCardTitle">Reload Window</span>
+                </div>
+                <p className="stepCardDesc">
+                  Select the file &amp; click <strong>Reload</strong>
+                </p>
               </div>
             </div>
           </div>
