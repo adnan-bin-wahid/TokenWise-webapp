@@ -1,5 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#06111f"/>
-  <path d="M14 20h36M14 32h27M14 44h18" stroke="#54f4ca" stroke-width="5" stroke-linecap="round"/>
-  <circle cx="48" cy="40" r="8" fill="none" stroke="#8f8dff" stroke-width="4"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <!-- Code brackets -->
+  <path d="M 18 16 C 14 16 12 19 12 24 C 12 28 9 31 7 32 C 9 33 12 36 12 40 C 12 45 14 48 18 48" 
+        stroke="#0f172a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 46 16 C 50 16 52 19 52 24 C 52 28 55 31 57 32 C 55 33 52 36 52 40 C 52 45 50 48 46 48" 
+        stroke="#0f172a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Prism -->
+  <polygon points="32,10 21,31 32,27" fill="#059669" />
+  <polygon points="32,10 32,27 43,31" fill="#10b981" />
+  <polygon points="21,31 32,36 32,27" fill="#047857" />
+  <polygon points="43,31 32,27 32,36" fill="#059669" />
+  <polygon points="21,35 32,54 32,38" fill="#0f172a" />
+  <polygon points="43,35 32,38 32,54" fill="#1e293b" />
 </svg>

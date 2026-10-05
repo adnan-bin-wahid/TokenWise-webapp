@@ -8,138 +8,160 @@ export function HeroScene() {
 
   useEffect(() => {
     const mount = mountRef.current;
-
-    if (!mount) {
-      return;
-    }
+    if (!mount) return;
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(48, 1, 0.1, 100);
-    camera.position.set(0, 0.6, 8);
+    scene.fog = new THREE.FogExp2(0xffffff, 0.055);
+
+    const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+    camera.position.set(0, 3.2, 10);
+    camera.lookAt(0, 0, 0);
 
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
       antialias: true,
       powerPreference: "high-performance",
-      preserveDrawingBuffer: true,
     });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setClearColor(0x000000, 0);
+    renderer.setClearColor(0xffffff, 0);
     mount.appendChild(renderer.domElement);
 
-    const group = new THREE.Group();
-    group.position.set(1.45, -0.2, 0);
-    group.rotation.y = -0.22;
-    scene.add(group);
+    // Studio lighting (clean, warm-neutral, no neon)
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
+    scene.add(ambientLight);
 
-    const ambient = new THREE.AmbientLight(0xbfefff, 0.45);
-    scene.add(ambient);
+    const mainLight = new THREE.DirectionalLight(0xffffff, 2.2);
+    mainLight.position.set(6, 12, 8);
+    scene.add(mainLight);
 
-    const key = new THREE.PointLight(0x60f0d0, 18, 18);
-    key.position.set(-2, 2.8, 4);
-    scene.add(key);
+    const fillLight = new THREE.DirectionalLight(0xf1f5f9, 1.0);
+    fillLight.position.set(-6, -4, 4);
+    scene.add(fillLight);
 
-    const rim = new THREE.PointLight(0x8c87ff, 9, 18);
-    rim.position.set(4, -1.6, 3.5);
-    scene.add(rim);
+    const rootGroup = new THREE.Group();
+    scene.add(rootGroup);
 
-    const monitorMaterial = new THREE.MeshStandardMaterial({
-      color: 0x0d2a4b,
-      metalness: 0.55,
-      roughness: 0.34,
-      transparent: true,
-      opacity: 0.62,
-    });
+    // 3D Perspective Grid Plane (aesthetic architecture drafting feel)
+    const gridHelper = new THREE.GridHelper(24, 32, 0xcbd5e1, 0xf1f5f9);
+    gridHelper.position.y = -2.2;
+    rootGroup.add(gridHelper);
 
-    const frame = new THREE.Mesh(new THREE.BoxGeometry(3.9, 2.2, 0.2), monitorMaterial);
-    frame.position.set(1.6, 0.15, -0.35);
-    frame.rotation.y = -0.14;
-    group.add(frame);
-
-    const screen = new THREE.Mesh(
-      new THREE.PlaneGeometry(3.35, 1.7),
-      new THREE.MeshBasicMaterial({
-        color: 0x0a1830,
+    // 3D Bounded Context Prisms & Blocks (clean, tactile, matte slate & emerald)
+    const blockMaterials = [
+      new THREE.MeshStandardMaterial({
+        color: 0xffffff,
+        roughness: 0.25,
+        metalness: 0.05,
         transparent: true,
-        opacity: 0.54,
+        opacity: 0.9,
       }),
-    );
-    screen.position.set(1.5, 0.17, -0.22);
-    screen.rotation.y = -0.14;
-    group.add(screen);
-
-    const ringGroup = new THREE.Group();
-    ringGroup.position.set(-0.55, -0.05, 0.15);
-    group.add(ringGroup);
-
-    const ringMaterials = [
-      new THREE.MeshStandardMaterial({ color: 0x3bf0c2, emissive: 0x103d36, metalness: 0.4 }),
-      new THREE.MeshStandardMaterial({ color: 0x7b7dff, emissive: 0x171746, metalness: 0.36 }),
-      new THREE.MeshStandardMaterial({ color: 0x57f5e0, emissive: 0x123c3a, metalness: 0.35 }),
-    ];
-
-    [0.92, 1.18, 1.43].forEach((radius, index) => {
-      const torus = new THREE.Mesh(
-        new THREE.TorusGeometry(radius, 0.025, 16, 128),
-        ringMaterials[index],
-      );
-      torus.rotation.y = Math.PI / 2.2;
-      torus.rotation.x = 0.06 * index;
-      ringGroup.add(torus);
-    });
-
-    const lineMaterial = new THREE.LineBasicMaterial({
-      color: 0x6fffe0,
-      transparent: true,
-      opacity: 0.3,
-    });
-
-    for (let index = 0; index < 24; index += 1) {
-      const y = (index % 8) * 0.18 - 0.64;
-      const z = Math.sin(index * 1.7) * 0.24;
-      const start = new THREE.Vector3(-0.2, y, z);
-      const end = new THREE.Vector3(2.95 + Math.random() * 0.9, y + Math.sin(index) * 0.2, z - 0.35);
-      const geometry = new THREE.BufferGeometry().setFromPoints([start, end]);
-      const line = new THREE.Line(geometry, lineMaterial.clone());
-      line.userData.speed = 0.35 + Math.random() * 0.85;
-      line.userData.baseY = y;
-      group.add(line);
-    }
-
-    const particleGeometry = new THREE.BufferGeometry();
-    const particleCount = 180;
-    const positions = new Float32Array(particleCount * 3);
-    const colors = new Float32Array(particleCount * 3);
-    const palette = [
-      new THREE.Color(0x47f4c4),
-      new THREE.Color(0x8e8cff),
-      new THREE.Color(0xb7d8ff),
-      new THREE.Color(0xffc56d),
-    ];
-
-    for (let index = 0; index < particleCount; index += 1) {
-      positions[index * 3] = -2.2 + Math.random() * 6.4;
-      positions[index * 3 + 1] = -1.3 + Math.random() * 2.6;
-      positions[index * 3 + 2] = -0.85 + Math.random() * 1.55;
-      const color = palette[index % palette.length];
-      colors[index * 3] = color.r;
-      colors[index * 3 + 1] = color.g;
-      colors[index * 3 + 2] = color.b;
-    }
-
-    particleGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    particleGeometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
-
-    const particles = new THREE.Points(
-      particleGeometry,
-      new THREE.PointsMaterial({
-        size: 0.035,
-        vertexColors: true,
+      new THREE.MeshStandardMaterial({
+        color: 0xf8fafc,
+        roughness: 0.3,
+        metalness: 0.1,
         transparent: true,
         opacity: 0.85,
       }),
-    );
-    group.add(particles);
+      new THREE.MeshStandardMaterial({
+        color: 0x059669, // Subtle emerald accent
+        roughness: 0.35,
+        metalness: 0.15,
+        transparent: true,
+        opacity: 0.75,
+      }),
+      new THREE.MeshStandardMaterial({
+        color: 0x1e293b, // Deep slate
+        roughness: 0.4,
+        metalness: 0.2,
+        transparent: true,
+        opacity: 0.8,
+      }),
+    ];
+
+    // Wireframe edge material for high-end CAD / architectural finish
+    const edgeMaterial = new THREE.LineBasicMaterial({
+      color: 0x94a3b8,
+      transparent: true,
+      opacity: 0.4,
+    });
+
+    const items: {
+      mesh: THREE.Mesh | THREE.Group;
+      baseY: number;
+      baseX: number;
+      rotSpeedX: number;
+      rotSpeedY: number;
+      floatSpeed: number;
+      floatOffset: number;
+    }[] = [];
+
+    // Create 14 aesthetic floating 3D geometric tokens / bounded context blocks
+    const configs = [
+      // Left side floating group
+      { x: -5.2, y: 1.2, z: -1.0, scale: [1.2, 0.4, 1.2], matIdx: 0, geo: "box" },
+      { x: -4.4, y: -0.6, z: 1.2, scale: [0.8, 0.8, 0.8], matIdx: 1, geo: "octa" },
+      { x: -6.0, y: -1.2, z: -2.0, scale: [1.4, 0.25, 1.4], matIdx: 0, geo: "box" },
+      { x: -3.8, y: 2.2, z: -2.2, scale: [0.6, 0.6, 0.6], matIdx: 2, geo: "octa" },
+      { x: -5.5, y: 0.2, z: 2.0, scale: [0.9, 0.9, 0.9], matIdx: 3, geo: "box" },
+
+      // Right side floating group
+      { x: 5.2, y: 1.4, z: -1.2, scale: [1.3, 0.45, 1.3], matIdx: 0, geo: "box" },
+      { x: 4.5, y: -0.8, z: 1.5, scale: [0.85, 0.85, 0.85], matIdx: 2, geo: "octa" },
+      { x: 6.2, y: -1.0, z: -2.2, scale: [1.5, 0.3, 1.5], matIdx: 1, geo: "box" },
+      { x: 4.0, y: 2.0, z: -1.8, scale: [0.7, 0.7, 0.7], matIdx: 3, geo: "box" },
+      { x: 5.8, y: 0.4, z: 2.2, scale: [0.95, 0.95, 0.95], matIdx: 0, geo: "octa" },
+
+      // Subtle background depth anchors
+      { x: -2.4, y: 3.2, z: -4.5, scale: [0.5, 0.5, 0.5], matIdx: 1, geo: "box" },
+      { x: 2.6, y: 3.4, z: -4.8, scale: [0.55, 0.55, 0.55], matIdx: 2, geo: "octa" },
+      { x: -1.8, y: -2.0, z: -3.0, scale: [1.0, 0.2, 1.0], matIdx: 0, geo: "box" },
+      { x: 2.0, y: -1.9, z: -3.2, scale: [1.1, 0.22, 1.1], matIdx: 1, geo: "box" },
+    ];
+
+    configs.forEach((cfg, i) => {
+      const group = new THREE.Group();
+      let geometry: THREE.BufferGeometry;
+
+      if (cfg.geo === "box") {
+        geometry = new THREE.BoxGeometry(cfg.scale[0], cfg.scale[1], cfg.scale[2]);
+      } else {
+        geometry = new THREE.OctahedronGeometry(cfg.scale[0] * 0.7, 0);
+      }
+
+      const mesh = new THREE.Mesh(geometry, blockMaterials[cfg.matIdx]);
+      group.add(mesh);
+
+      // Add architectural wireframe outlines
+      const wireframe = new THREE.LineSegments(new THREE.EdgesGeometry(geometry), edgeMaterial);
+      group.add(wireframe);
+
+      group.position.set(cfg.x, cfg.y, cfg.z);
+      group.rotation.set(0.3 * i, 0.4 * i, 0.2 * i);
+      rootGroup.add(group);
+
+      items.push({
+        mesh: group,
+        baseY: cfg.y,
+        baseX: cfg.x,
+        rotSpeedX: 0.15 + (i % 3) * 0.08,
+        rotSpeedY: 0.2 + (i % 4) * 0.07,
+        floatSpeed: 0.6 + (i % 3) * 0.3,
+        floatOffset: i * 0.8,
+      });
+    });
+
+    // Subtle 3D mouse parallax
+    let targetMouseX = 0;
+    let targetMouseY = 0;
+    let currentMouseX = 0;
+    let currentMouseY = 0;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      targetMouseX = (e.clientX / window.innerWidth - 0.5) * 1.2;
+      targetMouseY = (e.clientY / window.innerHeight - 0.5) * 0.8;
+    };
+
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
     const resize = () => {
       const width = mount.clientWidth;
@@ -155,15 +177,21 @@ export function HeroScene() {
 
     const animate = () => {
       const elapsed = clock.getElapsedTime();
-      ringGroup.rotation.z = elapsed * 0.16;
-      particles.rotation.y = Math.sin(elapsed * 0.24) * 0.1;
-      group.rotation.x = Math.sin(elapsed * 0.18) * 0.025;
 
-      group.children.forEach((child) => {
-        if (child instanceof THREE.Line) {
-          child.position.x = ((elapsed * child.userData.speed) % 1.6) - 0.8;
-          child.position.y = child.userData.baseY + Math.sin(elapsed + child.userData.speed) * 0.035;
-        }
+      // Smooth parallax damping
+      currentMouseX += (targetMouseX - currentMouseX) * 0.04;
+      currentMouseY += (targetMouseY - currentMouseY) * 0.04;
+
+      camera.position.x = currentMouseX * 1.5;
+      camera.position.y = 3.2 - currentMouseY * 1.0;
+      camera.lookAt(0, 0, 0);
+
+      // Floating animations
+      items.forEach((item) => {
+        item.mesh.position.y =
+          item.baseY + Math.sin(elapsed * item.floatSpeed + item.floatOffset) * 0.14;
+        item.mesh.rotation.x += 0.003 * item.rotSpeedX;
+        item.mesh.rotation.y += 0.004 * item.rotSpeedY;
       });
 
       renderer.render(scene, camera);
@@ -178,16 +206,16 @@ export function HeroScene() {
     animate();
 
     return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("resize", resize);
       cancelAnimationFrame(frameId);
       mount.removeChild(renderer.domElement);
       renderer.dispose();
-      particleGeometry.dispose();
-      lineMaterial.dispose();
-      monitorMaterial.dispose();
-      ringMaterials.forEach((material) => material.dispose());
+      gridHelper.dispose();
+      edgeMaterial.dispose();
+      blockMaterials.forEach((m) => m.dispose());
     };
   }, []);
 
-  return <div ref={mountRef} className="heroScene" aria-hidden="true" />;
+  return <div ref={mountRef} className="heroScene3D" aria-hidden="true" />;
 }

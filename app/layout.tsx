@@ -17,33 +17,37 @@ const jetBrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://tokenwise-webapp.vercel.app"),
   title: {
-    default: "TokenWise - Prompt Cost Analyzer for VS Code",
+    default: "TokenWise - Sustainable Context Optimization for Coding Agents",
     template: "%s | TokenWise",
   },
   description:
-    "TokenWise helps developers count prompt tokens, compare LLM costs, and optimize selected text directly inside VS Code.",
+    "TokenWise provides automatic, bounded Python repository context for Antigravity coding agents. No manual file picking, bounded token consumption, running 100% locally on CPU.",
   keywords: [
     "TokenWise",
-    "VS Code extension",
-    "token counter",
-    "prompt optimizer",
-    "LLM cost analyzer",
-    "AI developer tools",
+    "Antigravity IDE",
+    "Antigravity extension",
+    "context optimization",
+    "token pruning",
+    "Python coding agent",
+    "sustainable AI",
+    "bounded context",
+    "AST pruning",
+    "VSIX download",
   ],
   authors: [{ name: "Adnan Bin Wahid" }],
   creator: "Adnan Bin Wahid",
   openGraph: {
-    title: "TokenWise - Prompt Cost Analyzer for VS Code",
+    title: "TokenWise - Sustainable Context Optimization for Coding Agents",
     description:
-      "Analyze selected prompts, compare model costs, and rewrite token-heavy text without leaving the editor.",
+      "Automatic, bounded Python repository context retrieval for Antigravity coding agents. Eliminate manual file selection and context waste.",
     url: "https://tokenwise-webapp.vercel.app",
     siteName: "TokenWise",
     images: [
       {
-        url: "/tokenwise_3d_hero_background.webp",
-        width: 2400,
-        height: 1400,
-        alt: "TokenWise 3D prompt analysis interface",
+        url: "/tokenwise_white_hero.jpg",
+        width: 1920,
+        height: 1080,
+        alt: "TokenWise Sustainable Context Optimization Architecture",
       },
     ],
     locale: "en_US",
@@ -51,17 +55,17 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TokenWise - Prompt Cost Analyzer for VS Code",
+    title: "TokenWise - Sustainable Context Optimization for Coding Agents",
     description:
-      "Live token counting, cost comparison, and one-click prompt optimization for VS Code.",
-    images: ["/tokenwise_3d_hero_background.webp"],
+      "Automatic bounded context retrieval for Antigravity coding agents. Runs 100% locally on CPU without API keys.",
+    images: ["/tokenwise_white_hero.jpg"],
   },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#06111f",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({

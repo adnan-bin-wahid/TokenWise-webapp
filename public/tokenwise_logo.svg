@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" fill="none">
+  <!-- Code bracket left -->
+  <path d="M 28 26 C 22 26 20 30 20 38 C 20 44 16 48 12 50 C 16 52 20 56 20 62 C 20 70 22 74 28 74" 
+        stroke="#0f172a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Code bracket right -->
+  <path d="M 72 26 C 78 26 80 30 80 38 C 80 44 84 48 88 50 C 84 52 80 56 80 62 C 80 70 78 74 72 74" 
+        stroke="#0f172a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Token Prism Top Facets -->
+  <polygon points="50,15 34,48 50,42" fill="#059669" />
+  <polygon points="50,15 50,42 66,48" fill="#10b981" />
+  <polygon points="34,48 50,56 50,42" fill="#047857" />
+  <polygon points="66,48 50,42 50,56" fill="#059669" />
+
+  <!-- Token Prism Bottom Facets -->
+  <polygon points="34,54 50,85 50,60" fill="#0f172a" />
+  <polygon points="66,54 50,60 50,85" fill="#1e293b" />
+  <polygon points="34,54 50,60 50,56" fill="#334155" />
+  <polygon points="66,54 50,56 50,60" fill="#475569" />
+
+  <!-- Prism Wireframe Edges -->
+  <polyline points="50,15 34,48 50,56 66,48 50,15" stroke="#0f172a" stroke-width="2.5" stroke-linejoin="round"/>
+  <line x1="50" y1="15" x2="50" y2="56" stroke="#0f172a" stroke-width="2" />
+  <polyline points="34,54 50,85 66,54" stroke="#0f172a" stroke-width="2.5" stroke-linejoin="round"/>
+  <line x1="50" y1="60" x2="50" y2="85" stroke="#0f172a" stroke-width="2" />
+</svg>

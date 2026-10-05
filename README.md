@@ -1,36 +1,26 @@
 # TokenWise Web App
 
-A polished Next.js landing site for the TokenWise VS Code extension.
+A clean, modern landing website for **TokenWise** — Sustainable Context Optimization for Antigravity Coding Agents.
 
-## Features
+## Overview
 
-- Modern 3D/WebGL hero using Three.js
-- Responsive extension-focused product sections
-- Vercel-ready Next.js App Router structure
-- SEO metadata, robots, sitemap, and social image metadata
-- Uses the supplied TokenWise hero artwork from `public/tokenwise_3d_hero_background.webp`
+TokenWise provides automatic, bounded Python repository context retrieval for coding prompts in the Antigravity IDE. It retrieves relevant code and tests without requiring manual file selection or wasting token budgets, running 100% locally on CPU without external API keys.
 
-## Getting Started
+## Quick Links
 
-Install dependencies:
+- [GitHub Repository](https://github.com/adnan-bin-wahid/Tokenwise-updated)
+- [v0.6.3 Release (.vsix & Bundle)](https://github.com/adnan-bin-wahid/Tokenwise-updated/releases/tag/v0.6.3)
+- [Demonstration & Teacher Guide](https://github.com/adnan-bin-wahid/Tokenwise-updated/blob/main/demonstation.md)
+
+## Development
 
 ```bash
 npm install
-```
-
-Run the development server:
-
-```bash
 npm run dev
 ```
 
-Build for production:
+## Production Build
 
 ```bash
 npm run build
 ```
-
-## Deploy
-
-Import this repository into Vercel and deploy with the default Next.js settings.
-# TokenWise-webapp
