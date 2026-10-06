@@ -170,13 +170,13 @@ const structuredData = {
       applicationCategory: "DeveloperApplication",
       applicationSubCategory: "IDE Extension",
       operatingSystem: "Windows, macOS, Linux",
-      softwareVersion: "0.6.3",
+      softwareVersion: "0.6.5",
       fileFormat: "application/vsix",
       url: siteUrl,
       downloadUrl:
-        "https://github.com/adnan-bin-wahid/Tokenwise-updated/releases/download/v0.6.3/tokenwise-vscode-0.6.3.vsix",
+        "https://github.com/adnan-bin-wahid/Tokenwise-updated/releases/download/v0.6.5/tokenwise-vscode-0.6.5.vsix",
       releaseNotes:
-        "https://github.com/adnan-bin-wahid/Tokenwise-updated/releases/tag/v0.6.3",
+        "https://github.com/adnan-bin-wahid/Tokenwise-updated/releases/tag/v0.6.5",
       requirements: "Antigravity IDE, 64-bit Python 3.12",
       memoryRequirements: "8 GB RAM recommended",
       storageRequirements: "10 GB free space for weights and virtual environment",
@@ -207,8 +207,8 @@ const structuredData = {
           "@type": "HowToStep",
           position: 1,
           name: "Download the VSIX",
-          text: "Download tokenwise-vscode-0.6.3.vsix from the official GitHub release to your local computer.",
-          url: "https://github.com/adnan-bin-wahid/Tokenwise-updated/releases/download/v0.6.3/tokenwise-vscode-0.6.3.vsix",
+          text: "Download tokenwise-vscode-0.6.5.vsix from the official GitHub release to your local computer.",
+          url: "https://github.com/adnan-bin-wahid/Tokenwise-updated/releases/download/v0.6.5/tokenwise-vscode-0.6.5.vsix",
         },
         {
           "@type": "HowToStep",
@@ -248,7 +248,7 @@ const structuredData = {
           name: "How do I install TokenWise in Antigravity IDE?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Download the tokenwise-vscode-0.6.3.vsix file, open Antigravity Extensions (Ctrl+Shift+X), click the '...' menu, choose 'Install from VSIX...', select the downloaded file, and reload the window.",
+            text: "Download the tokenwise-vscode-0.6.5.vsix file, open Antigravity Extensions (Ctrl+Shift+X), click the '...' menu, choose 'Install from VSIX...', select the downloaded file, and reload the window.",
           },
         },
         {

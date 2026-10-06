@@ -9,7 +9,7 @@ TokenWise provides automatic, bounded Python repository context retrieval for co
 ## Quick Links
 
 - [GitHub Repository](https://github.com/adnan-bin-wahid/Tokenwise-updated)
-- [v0.6.3 Release (.vsix & Bundle)](https://github.com/adnan-bin-wahid/Tokenwise-updated/releases/tag/v0.6.3)
+- [v0.6.5 Release (.vsix & Bundle)](https://github.com/adnan-bin-wahid/Tokenwise-updated/releases/tag/v0.6.5)
 - [Demonstration & Teacher Guide](https://github.com/adnan-bin-wahid/Tokenwise-updated/blob/main/demonstation.md)
 
 ## Development
