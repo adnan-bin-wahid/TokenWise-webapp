@@ -3,11 +3,11 @@ import Link from "next/link";
 import { HeroScene } from "@/components/HeroScene";
 
 const vsixDownloadUrl =
-  "https://github.com/adnan-bin-wahid/Tokenwise-updated/releases/download/v0.6.5/tokenwise-vscode-0.6.5.vsix";
+  "https://github.com/adnan-bin-wahid/Tokenwise-updated/releases/download/v0.6.8/tokenwise-vscode-0.6.8.vsix";
 const bundleDownloadUrl =
-  "https://github.com/adnan-bin-wahid/Tokenwise-updated/releases/download/v0.6.5/TokenWise-0.6.5.zip";
+  "https://github.com/adnan-bin-wahid/Tokenwise-updated/releases/download/v0.6.8/TokenWise-0.6.8.zip";
 const releaseUrl =
-  "https://github.com/adnan-bin-wahid/Tokenwise-updated/releases/tag/v0.6.5";
+  "https://github.com/adnan-bin-wahid/Tokenwise-updated/releases/tag/v0.6.8";
 const repositoryUrl =
   "https://github.com/adnan-bin-wahid/Tokenwise-updated";
 const guideUrl =
@@ -103,7 +103,7 @@ const quickStartSteps = [
   {
     num: "1",
     title: "Install TokenWise VSIX in Antigravity",
-    desc: "Download tokenwise-vscode-0.6.5.vsix. In Antigravity: open Extensions view, click the '...' menu, choose 'Install from VSIX...', select the downloaded file, and reload the editor window when prompted.",
+    desc: "Download tokenwise-vscode-0.6.8.vsix. In Antigravity: open Extensions view, click the '...' menu, choose 'Install from VSIX...', select the downloaded file, and reload the editor window when prompted.",
     codeLabel: "Antigravity Extensions View",
     code: "# 1. Extensions (Ctrl+Shift+X) > ... menu\n> Install from VSIX... (Select .vsix file)\n# Click 'Reload Window' when prompted",
   },
@@ -568,7 +568,7 @@ export default function Home() {
             <div className="demonstrationContent">
               <h2 className="demonstrationTitle">Demonstration Guide &amp; Test Project</h2>
               <p className="demonstrationDesc">
-                TokenWise 0.6.5 provides an official teacher demonstration bundle with a complete Python demo project, 20 tests, input-trace inspection commands, and packet-comparison verification.
+                TokenWise 0.6.8 provides an official teacher demonstration bundle with a complete Python demo project, 20 tests, input-trace inspection commands, and packet-comparison verification.
               </p>
               <div className="demonstrationLinks">
                 <a className="primaryBtn" href={bundleDownloadUrl} target="_blank" rel="noopener noreferrer">
@@ -633,7 +633,7 @@ export default function Home() {
           </div>
           <div className="footerLinks">
             <Link href={repositoryUrl} target="_blank" rel="noopener noreferrer">GitHub</Link>
-            <Link href={releaseUrl} target="_blank" rel="noopener noreferrer">Release v0.6.5</Link>
+            <Link href={releaseUrl} target="_blank" rel="noopener noreferrer">Release v0.6.8</Link>
             <Link href={guideUrl} target="_blank" rel="noopener noreferrer">Demonstration Guide</Link>
             <Link href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Python 3.12</Link>
           </div>
